@@ -117,6 +117,8 @@ Em Python, quase tudo é um objeto (números, strings, listas, e instâncias de 
 ---
 
 ## * `if, elif, else`: Usadas para estruturas condicionais.
+A estrutura condicional permite o desvio de fluxo de controle, quando determinadas expressões lógicas são atendidas.
+
 _Imagine que o Python é um porteiro tomando decisões._  
 - if é a primeira pergunta ("Você tem convite?")
 - elif é uma pergunta alternativa ("Se não, você está na lista?")
@@ -142,6 +144,40 @@ elif idade == 18:
 else:
     print("Maior de idade.")
 # Saída: Maior de idade.
+```
+### * `if` ternário: Usado em uma única linha de código.
+_Pense no `if` ternário como um "decisor rápido e direto". Em vez de usar um bloco if e else mais longo só para escolher um entre dois valores para uma variável, você faz a pergunta (if condição) e já diz "Me dê este valor se for sim, ou aquele valor se for não (else)". É a resposta instantânea para uma escolha simples!  
+
+**Estrutura básica:**
+```
+valor_se_verdadeiro if condicao else valor_se_falso
+```
+- A condicao (condição) é avaliada primeiro.
+- Se a condicao for True (Verdadeira), a expressão inteira retorna o valor_se_verdadeiro.
+- Se a condicao for False (Falsa), a expressão inteira retorna o valor_se_falso.
+
+**Exemplo:**
+```
+# Imagine que você tem um 'saldo' na conta e vai fazer um 'saque'
+saldo = 2000
+saque = 500
+
+# Decidimos o 'status' da operação em uma única linha:
+# Se o saldo for MAIOR que o saque, o status é "Sucesso", SENÃO ("else") é "Falha".
+status = "Sucesso" if saldo > saque else "Falha"
+
+print(f"O status ao realizar o saque é: {status}")
+
+# Neste exemplo, 2000 é > 500 (Verdadeiro), então a condição é True.
+# A expressão retorna "Sucesso".
+# Saída esperada: O status ao realizar o saque é: Sucesso
+
+# Se alterássemos:
+# saldo = 300
+# saque = 500
+# status = "Sucesso" if saldo > saque else "Falha"
+# Neste caso, 300 > 500 (Falso), então a condição é False.
+# A expressão retornaria "Falha".
 ```
 ---
 
