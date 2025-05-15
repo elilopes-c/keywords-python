@@ -115,7 +115,7 @@ print(f"Energia do Totó agora: {cachorro_toto.energia}")
 Em Python, quase tudo é um objeto (números, strings, listas, e instâncias de suas classes).
 
 ---
-
+## ESTRUTURAS CONDICIONAIS:
 ## * `if, elif, else`: Usadas para estruturas condicionais.
 A estrutura condicional permite o desvio de fluxo de controle, quando determinadas expressões lógicas são atendidas.
 
@@ -180,7 +180,7 @@ print(f"O status ao realizar o saque é: {status}")
 # A expressão retornaria "Falha".
 ```
 ---
-
+## ESTRUTURAS DE REPETIÇÃO:
 ## * `for`: Usada para laços de repetição (iterar sobre sequências).
 _O `for` é como um funcionário que pega cada item de uma caixa (uma lista, uma string, etc.), um por vez, e faz algo com ele até que todos os itens tenham sido processados._
 
