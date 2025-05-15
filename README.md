@@ -237,6 +237,7 @@ for i in range(0, 11, 2):
 
 ## * `while`: Usada para laços de repetição (enquanto uma condição for verdadeira).
 _O `while` é como dizer "continue fazendo isso enquanto esta luz estiver verde". Assim que a luz ficar vermelha (a condição se tornar falsa), pare!_
+Faz sentido usar `while` quando não sabemos o número exato de vezes que o bloco de código deve ser executado.
 
 
 **Estrutura básica:**
@@ -257,8 +258,64 @@ while contador < 3:
 # Contador é 1
 # Contador é 2
 ```
----
 
+## * `break`: Usado para interromper a repetição.
+_Pense na palavra-chave `break` como um "botão de parada imediata" para os seus loops (`for` e `while`). Normalmente, um loop segue seu curso natural – o `for` até processar todos os itens ou o `while` até sua condição se tornar falsa. Mas se, no meio dessa repetição, uma situação específica ocorrer e você decidir que não precisa ou não quer mais continuar o loop, o `break` é o seu comando mágico. Ele diz ao Python para **encerrar o loop na hora**, ignorando quaisquer iterações futuras ou a condição do `while`, e continuar a execução do programa na primeira linha *após* o loop. É útil para otimizar o código, parando um processo assim que o objetivo for atingido (como encontrar um item em uma busca)._
+
+Geralmente, o `break` é usado em conjunto com uma estrutura condicional (`if`) dentro do loop, para que a saída prematura ocorra apenas quando uma condição específica for atendida.
+
+**Exemplos:**
+```
+# Exemplo 1: Usando break em um loop for para parar uma busca
+print("--- Usando break em um loop for ---")
+frutas = ["maçã", "banana", "cereja", "uva", "laranja"]
+item_desejado = "cereja"
+
+print(f"Procurando por '{item_desejado}' na lista de frutas:")
+for fruta in frutas:
+    print(f"Verificando: {fruta}")
+    if fruta == item_desejado:
+        print(f"Encontramos '{item_desejado}'! Não precisamos procurar mais.")
+        break # Sai do loop for imediatamente
+
+print("Execução continua após o loop for.")
+# Saída esperada:
+# --- Usando break em um loop for ---
+# Procurando por 'cereja' na lista de frutas:
+# Verificando: maçã
+# Verificando: banana
+# Verificando: cereja
+# Encontramos 'cereja'! Não precisamos procurar mais.
+# Execução continua após o loop for.
+
+# Exemplo 2: Usando break em um loop while para sair sob condição
+print("\n--- Usando break em um loop while ---")
+contador = 0
+limite = 10
+
+print(f"Contando de 0 até um limite, mas parando se chegar a 5:")
+while contador <= limite:
+    print(f"Contador atual: {contador}")
+    if contador == 5:
+        print("Chegamos a 5! Hora de parar.")
+        break # Sai do loop while imediatamente
+    contador += 1
+
+print("Execução continua após o loop while.")
+# Saída esperada:
+# --- Usando break em um loop while ---
+# Contando de 0 até um limite, mas parando se chegar a 5:
+# Contador atual: 0
+# Contador atual: 1
+# Contador atual: 2
+# Contador atual: 3
+# Contador atual: 4
+# Contador atual: 5
+# Chegamos a 5! Hora de parar.
+# Execução continua após o loop while.
+```
+---
+////////////////////
 ## * `return`: Usada dentro de uma função para enviar um valor de volta.
 _Quando uma função com `return` termina seu trabalho, ela é como um mensageiro que volta para quem a chamou e entrega um pacote (o valor de retorno). Se não houver `return` explícito ou se for `return None`, ela entrega um "pacote vazio" (None)._
 
