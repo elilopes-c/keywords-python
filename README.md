@@ -202,6 +202,37 @@ for fruta in frutas:
 for numero in range(3): # Gera números de 0 a 2
     print(f"Número: {numero}")
 ```
+
+## Função `range()`
+_Imagine a função `range()` como um "gerador de sequências numéricas" super eficiente. Em vez de criar uma lista gigante de números na memória de uma só vez (o que poderia consumir muito espaço para sequências grandes!), o `range()` é "inteligente".  Ele sabe de onde começar (o início), onde parar (E ATENÇÃO: ele para antes de chegar neste número final!) e de quanto em quanto pular. Ele só "produz" o próximo número da sequência quando um loop `for` (ou outra operação que precise dos números) pede. É perfeito para controlar quantas vezes um loop deve rodar ou para iterar sobre índices!_
+
+**Sintaxe e Uso:**
+`range()` é uma função built-in do Python e serve para gerar sequências imutáveis de números, frequentemente usada em loops `for`. Ela pode ser usada de três formas:
+
+- `range(stop)`: Gera números inteiros começando em `0` (padrão) e terminando **antes** de `stop`. O argumento `stop` é **obrigatório** e o fim da sequência é **exclusivo**.
+- `range(start, stop)`: Gera uma sequência de números inteiros começando em `start` (inclusive) até `stop - 1` (exclusivo). `start` e `stop` são **obrigatórios** nesta forma, o `step` padrão é `1`.
+- `range(start, stop, step)`: Gera uma sequência de números inteiros começando em `start` (inclusive) até `stop - 1` (exclusivo), pulando de acordo com o valor de `step`. Todos os três argumentos são **obrigatórios** nesta forma.
+
+**Exemplos:** 
+```
+# Exemplo 1: range(stop) - Gera números de 0 até 4 (5-1)
+list(range(4)) -> [0, 1, 2, 3]
+
+# Exemplo 2: range(stop) com for
+for numero in range(5):
+    print(numero, end=" ")
+# Saída esperada: 0 1 2 3 4
+
+# Exemplo 3: range(start, stop) - Gera números de 2 até 5 (6-1)
+for i in range(2, 6):
+    print(i, end=" ")
+# Saída esperada: 2 3 4 5
+
+# Exemplo 4: range(start, stop, step) - Gera números de 0 até 10 (11-1), pulando de 2 em 2
+for i in range(0, 11, 2):
+    print(i, end=" ")
+# Saída esperada: 0 2 4 6 8 10
+```
 ---
 
 ## * `while`: Usada para laços de repetição (enquanto uma condição for verdadeira).
