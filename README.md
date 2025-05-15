@@ -314,6 +314,61 @@ print("Execução continua após o loop while.")
 # Chegamos a 5! Hora de parar.
 # Execução continua após o loop while.
 ```
+
+## * `continue`: Usado para pular o restante do ciclo atual de uma iteração (em loops `for` ou `while`) e ir para a próxima iteração
+_Se o `break` é o botão de "parada total" para um loop, o `continue` é como o botão de "pular esta volta" ou "próximo item!". Quando seu loop (`for` ou `while`) está no meio de uma iteração (fazendo os passos para um item ou um ciclo) e encontra um `continue`, ele diz: "Ok, esquece o resto do que eu ia fazer NESTA volta! Não termine este ciclo de iteração. Vá direto para o começo da PRÓXIMA volta do loop!" Ele ignora o código que viria depois dele naquele ciclo e segue para a próxima iteração (no `for` vai para o próximo item, no `while` volta para reavaliar a condição e, se verdadeira, começa o próximo ciclo). É ótimo quando você quer pular o processamento de itens específicos ou pular uma parte da lógica para uma condição particular._
+
+**Exemplos:**
+```
+# Exemplo 1: Usando continue em um loop for para pular a impressão de um número
+print("--- Usando continue em um loop for ---")
+numeros = [1, 2, 3, 4, 5, 6]
+
+print("Imprimindo números, mas pulando o 3:")
+for numero in numeros:
+    if numero == 3:
+        print(f"Pulando a impressão do número {numero} nesta iteração...")
+        continue # Pula o restante do código para esta iteração (não executa o print abaixo)
+    print(f"Processando e imprimindo: {numero}")
+
+print("Execução continua após o loop for.")
+# Saída esperada:
+# --- Usando continue em um loop for ---
+# Imprimindo números, mas pulando o 3:
+# Processando e imprimindo: 1
+# Processando e imprimindo: 2
+# Pulando a impressão do número 3 nesta iteração...
+# Processando e imprimindo: 4
+# Processando e imprimindo: 5
+# Processando e imprimindo: 6
+# Execução continua após o loop for.
+
+# Exemplo 2: Usando continue em um loop while para pular uma ação para um número específico
+print("\n--- Usando continue em um loop while ---")
+contador = 0
+
+print("Contando de 0 a 5, mas pulando a 'ação principal' para o número 2:")
+while contador < 6:
+    if contador == 2:
+        print(f"Número {contador} encontrado. Pulando a ação principal para ele.")
+        contador += 1 # CRUCIAL: Atualiza o contador ANTES do continue para evitar loop infinito
+        continue # Pula o restante do loop para esta iteração
+
+    print(f"Ação principal para o número: {contador}")
+    contador += 1 # Atualiza o contador (para as iterações que não usam continue)
+
+print("Execução continua após o loop while.")
+# Saída esperada:
+# --- Usando continue em um loop while ---
+# Contando de 0 a 5, mas pulando a 'ação principal' para o número 2:
+# Ação principal para o número: 0
+# Ação principal para o número: 1
+# Número 2 encontrado. Pulando a ação principal para ele.
+# Ação principal para o número: 3
+# Ação principal para o número: 4
+# Ação principal para o número: 5
+# Execução continua após o loop while.
+
 ---
 ////////////////////
 ## * `return`: Usada dentro de uma função para enviar um valor de volta.
