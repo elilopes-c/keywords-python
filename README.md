@@ -40,6 +40,94 @@ print(saudar("Fulano"))
 # Saída será: 
 Olá, Fulano!
 ```
+
+## * `return`: Usada exclusivamente dentro do corpo de uma função em Python. Sua função principal é:
+
+1.  **Encerrar a Execução da Função:** Assim que a linha com `return` é alcançada, a execução da função para imediatamente. Qualquer código após o `return` dentro da mesma função **não** será executado.
+2.  **Enviar um Valor de Volta:** O valor especificado após o `return` é "retornado" para o código que chamou a função. Este valor pode ser capturado e utilizado (por exemplo, atribuído a uma variável).
+
+* Se uma função termina sem um `return` explícito que especifique um valor, ou se você apenas escreve `return` sem nada depois, a função implicitamente retorna o objeto `None`.
+
+**Retornando Múltiplos Valores:**
+Embora uma função em Python retorne tecnicamente um único objeto, você pode retornar múltiplos valores simplesmente listando-os separados por vírgulas após o `return`. Python automaticamente empacota esses valores em uma **tupla** e retorna essa tupla. No código que chama a função, você pode desempacotar essa tupla em variáveis separadas.
+
+**Exemplos:**
+
+```
+# Exemplo 1: Função retornando um único valor (simples)
+def criar_saudacao(nome):
+    """Recebe um nome e retorna uma mensagem de saudação."""
+    mensagem = f"Olá, {nome}! Tudo bem?"
+    return mensagem # Retorna a string criada
+
+# Chamando a função e usando a mensagem retornada
+saudacao_pronta = criar_saudacao("Ana")
+print(saudacao_pronta)
+# Saída: Olá, Ana! Tudo bem?
+
+# Exemplo 2: Função sem return explícito (retorna None)
+def mostrar_status_sistema(status):
+    """Apenas imprime um status, não precisa retornar nada."""
+    print(f"Status do sistema: {status}")
+    # Não há 'return' aqui, então implicitamente retorna None
+
+valor_obtido_da_funcao = mostrar_status_sistema("OK")
+print(f"O que essa função retornou? {valor_obtido_da_funcao}")
+# Saída: Status do sistema: OK
+# Saída: O que essa função retornou? None
+
+# Exemplo 3: Função retornando múltiplos valores (como uma tupla)
+def obter_informacoes_contato():
+    """Simula obter nome e email de um contato."""
+    nome_contato = "Bruno"
+    email_contato = "bruno.c@email.com"
+    # Retornamos nome e email separados por vírgula.
+    # Python os empacota automaticamente em uma tupla.
+    return nome_contato, email_contato
+
+# Chamando a função e desempacotando os valores retornados em variáveis separadas
+nome_capturado, email_capturado = obter_informacoes_contato()
+
+print(f"Contato: {nome_capturado}, Email: {email_capturado}")
+# Saída: Contato: Bruno, Email: bruno.c@email.com
+
+# Você também pode capturar o retorno múltiplo como uma única tupla:
+info_completa_contato = obter_informacoes_contato()
+print(f"Info completa do contato (como tupla): {info_completa_contato}")
+# Saída: Info completa do contato (como tupla): ('Bruno', 'bruno.c@email.com')
+
+# Exemplo 4: Função retornando um valor baseado em condição
+def verificar_elegibilidade_compra(idade):
+    """Verifica se a idade permite fazer uma compra (>= 18)."""
+    if idade >= 18:
+        return "Pode comprar" # Retorna esta string se a condição for True
+    else:
+        return "Não pode comprar" # Retorna esta string se a condição for False
+
+status_compra_joao = verificar_elegibilidade_compra(20)
+print(f"João ({20} anos): {status_compra_joao}")
+# Saída: João (20 anos): Pode comprar
+
+status_compra_maria = verificar_elegibilidade_compra(16)
+print(f"Maria ({16} anos): {status_compra_maria}")
+# Saída: Maria (16 anos): Não pode comprar
+
+# Exemplo 5: Função com parâmetro padrão retornando um valor
+def gerar_etiqueta_produto(nome_produto, quantidade=1):
+    """Cria uma etiqueta para um produto, usando 1 como quantidade padrão."""
+    etiqueta = f"Produto: {nome_produto} | Quantidade: {quantidade}"
+    return etiqueta # Retorna a string da etiqueta
+
+# Usando a quantidade padrão (1)
+etiqueta_maca = gerar_etiqueta_produto("Maçã")
+print(etiqueta_maca)
+# Saída: Produto: Maçã | Quantidade: 1
+
+# Especificando a quantidade
+etiqueta_banana = gerar_etiqueta_produto("Banana", 6)
+print(etiqueta_banana)
+# Saída: Produto: Banana | Quantidade: 6
+```
 ---
 
 ## * `class`: Usada para definir uma classe.
