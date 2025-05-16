@@ -114,7 +114,84 @@ print(f"Energia do Totó agora: {cachorro_toto.energia}")
 ```
 Em Python, quase tudo é um objeto (números, strings, listas, e instâncias de suas classes).
 
+///////////
+
+## INTERPOLAÇÃO DE VARIÁVEIS:
+
+## * `f-string`: Usada para inserir o valor de uma variável no meio de um texto.
+_Em vez de ficar colando pedaços de texto com `+` ou usar métodos mais antigos, você simplesmente coloca a letra `f` antes das aspas da sua string e, onde quiser que o valor de uma variável apareça, você a coloca entre chaves `{}`_
+
+_Elas suportam expressões complexas, formatação específica (como número de casas decimais), chamadas de métodos e são geralmente mais rápidas e legíveis que outros métodos de interpolação (`%` formatting ou `.format()`)._
+
+**Exemplos:**
+
+```
+# Exemplo 1: Interpolação básica de variáveis
+nome = "Alice"
+idade = 30
+mensagem = f"Olá, meu nome é {nome} e tenho {idade} anos."
+print(mensagem)
+# Saída: Olá, meu nome é Alice e tenho 30 anos.
+
+# Exemplo 2: Usando expressões e formatação dentro das chaves
+# É possível fazer cálculos ou usar métodos de formatação diretamente dentro das chaves {}.
+preco_unitario = 19.99
+quantidade = 3
+
+# Imprime o preço unitário formatado para 2 casas decimais
+print(f"Preço unitário: R${preco_unitario:.2f}")
+# Saída: Preço unitário: R$19.99
+
+# Calcula o total (preço * quantidade) e já formata o resultado para 2 casas decimais
+print(f"Total da compra: R${(preco_unitario * quantidade):.2f}")
+# Saída: Total da compra: R$59.97
+
+# Exemplo 3: Chamando métodos diretamente na expressão
+linguagem = "PYTHON"
+# Chama o método .lower() na string 'linguagem' e insere o resultado.
+print(f"Nome da linguagem em minúsculas: {linguagem.lower()}")
+# Saída: Nome da linguagem em minúsculas: python
+
+# Exemplo 4: Usando f-strings com múltiplas linhas (strings triplas)
+# Strings triplas (com """ ou ''') permitem criar strings que quebram linha.
+# Ao adicionar 'f' antes das aspas triplas, elas se tornam f-strings de múltiplas linhas.
+
+# 1. Definimos as variáveis que serão usadas na string de múltiplas linhas.
+nome_cliente = "Carlos" # Usando nome_cliente para não confundir com 'nome' do Exemplo 1
+idade_cliente = 45
+produto = "Tablet"
+valor = 550.75
+
+# 2. Criamos a f-string usando aspas triplas e 'f' antes.
+# O texto dentro das aspas triplas, incluindo as quebras de linha, é parte da string.
+# As variáveis e expressões entre {} serão substituídas por seus valores.
+confirmacao_pedido = f"""
+Prezado(a) {nome_cliente},
+
+Confirmamos seu pedido do produto: {produto}.
+O valor total é de R${valor:.2f}.
+Seu pedido está sendo processado.
+
+Agradecemos a sua compra!
+"""
+# A quebra de linha imediatamente após """ é incluída na string.
+
+# 3. Imprimimos a string resultante formatada.
+print(confirmacao_pedido)
+
+# Saída:
+#
+# Prezado(a) Carlos,
+#
+# Confirmamos seu pedido do produto: Tablet.
+# O valor total é de R$550.75.
+# Seu pedido está sendo processado.
+#
+# Agradecemos a sua compra!
+
+```
 ---
+
 ## ESTRUTURAS CONDICIONAIS:
 ## * `if, elif, else`: Usadas para estruturas condicionais.
 A estrutura condicional permite o desvio de fluxo de controle, quando determinadas expressões lógicas são atendidas.
