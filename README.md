@@ -115,6 +115,7 @@ print(f"Energia do Totó agora: {cachorro_toto.energia}")
 Em Python, quase tudo é um objeto (números, strings, listas, e instâncias de suas classes).
 
 ///////////
+---
 
 ## INTERPOLAÇÃO DE VARIÁVEIS:
 
@@ -188,8 +189,76 @@ print(confirmacao_pedido)
 # Seu pedido está sendo processado.
 #
 # Agradecemos a sua compra!
+```
+
+## * Fatiamento de strings
+_Imagine sua string como um delicioso "bolo" de letras, onde cada letra é uma fatia individual com uma posição (o índice). Fatiar a string é como pedir um "pedaço" desse bolo, uma porção específica das fatias. Você especifica qual a **primeira fatia** que quer (o `start`, que *inclui* aquela fatia), qual a **última fatia** que *não* quer (o `stop`, que *exclui* aquela fatia final!), e, opcionalmente, de quantas em quantas fatias você quer pular (`step`). O Python te entrega um novo "mini-bolo" (uma nova string) contendo apenas as fatias que você pediu, na ordem certinha ou até de trás para frente se usar um passo negativo! É uma forma super flexível e eficiente de trabalhar com partes do seu texto._
+
+**Sintaxe:** A sintaxe é feita utilizando colchetes `[]` após a string, seguindo o formato: `[start : stop : step]`.
+
+* `start`: O índice do primeiro caractere a ser incluído na fatia (o início do pedaço). Se omitido, o fatiamento começa do índice 0.
+* `stop`: O índice do primeiro caractere a *não* ser incluído na fatia (o fim do pedaço, que é *exclusivo*). Se omitido, o fatiamento vai até o final da string.
+* `step`: O passo ou "salto" entre os índices (de quanto em quanto pular). O padrão é `1`. Se for negativo, percorre a string de trás para frente.
+
+**Exemplos:** 
 
 ```
+# Definindo a string 
+nome = "Guilherme Arthur de Carvalho"
+print(f"String original: '{nome}'")
+# Saída: String original: Guilherme Arthur de Carvalho
+
+# Exemplo 1: Acessando um único caractere pelo índice
+# Indices começam em 0. nome[0] é o primeiro caractere.
+print(f"Primeira letra (nome[0]): '{nome[0]}'")
+# Saída: Primeira letra (nome[0]): 'G'
+
+# Exemplo 2: Fatiamento básico [start : stop]
+# Pega do índice 'start' (incluso) até 'stop' (excluso).
+print(f"Primeiro nome (nome[0:9]): '{nome[0:9]}'")
+# Saída: Primeiro nome (nome[0:9]): 'Guilherme'
+
+# Exemplo 3: Fatiamento do início até o stop [ : stop]
+# Quando start é omitido, começa do índice 0.
+print(f"Do início até o nono caractere (nome[:9]): '{nome[:9]}'")
+# Saída: Do início até o nono caractere (nome[:9]): 'Guilherme'
+
+# Exemplo 4: Fatiamento do start até o final [start : ]
+# Quando stop é omitido, vai até o último caractere.
+print(f"Do décimo caractere até o final (nome[10:]): '{nome[10:]}'")
+# Saída: Do décimo caractere até o final (nome[10:]): 'Arthur de Carvalho'
+
+# Exemplo 5: Fatiamento com start e stop específicos [start : stop]
+# Pega do índice 10 (inclusive) até o 16 (exclusivo).
+print(f"Parte do meio (nome[10:16]): '{nome[10:16]}'")
+# Saída: Parte do meio (nome[10:16]): 'Arthur'
+
+# Exemplo 6: Fatiamento com passo [start : stop : step]
+# Do início ao fim (omitindo start e stop), pulando de 2 em 2.
+print(f"Pulando de 2 em 2 (nome[::2]): '{nome[::2]}'")
+# Saída: Pulando de 2 em 2 (nome[::2]): 'Gilem Arhrd avlo'
+
+# Exemplo 7: Fatiamento reverso [ : : -1]
+# Um step negativo (-1) percorre a string de trás para frente.
+print(f"String invertida (nome[::-1]): '{nome[::-1]}'")
+# Saída: String invertida (nome[::-1]): 'ohlavraC ed ruhtrA emrehliuG'
+
+# Exemplo 8: Usando índices negativos
+# Índices negativos contam a partir do final da string (-1 é o último caractere).
+print(f"Último caractere (nome[-1]): '{nome[-1]}'")
+# Saída: Último caractere (nome[-1]): 'o'
+
+# Exemplo 9: Fatiamento usando índice negativo no start
+# Pega da 8ª posição contando do final, até o final da string.
+print(f"Último nome (nome[-8:]): '{nome[-8:]}'")
+# Saída: Último nome (nome[-8:]): 'Carvalho'
+
+# Exemplo 10: Fatiamento com índices negativos e step negativo
+# Pega do penúltimo caractere (-2) até o 4º caractere (-26), pulando de -1 em -1.
+print(f"Penúltimo até o 4º caractere invertido (nome[-2:-26:-1]): '{nome[-2:-26:-1]}'")
+# Saída: Penúltimo até o 4º caractere invertido (nome[-2:-26:-1]): 'ohlavraC ed ruhtrA emrehliu'
+```
+//////////
 ---
 
 ## ESTRUTURAS CONDICIONAIS:
