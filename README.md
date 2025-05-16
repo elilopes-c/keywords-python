@@ -128,6 +128,123 @@ etiqueta_banana = gerar_etiqueta_produto("Banana", 6)
 print(etiqueta_banana)
 # Saída: Produto: Banana | Quantidade: 6
 ```
+## * `*args` e `**kwargs`
+_Imagine que você está dando instruções para um assistente virtual (sua função em Python), mas nem sempre sabe *quantas* informações extras você vai querer dar a ele, ou se essas informações extras virão com "etiquetas" (nomes) ou não._
+
+O `*args` (com um asterisco) é como uma "sacola de itens sem etiqueta". Tudo que você joga para o assistente *além* das instruções básicas, e que não tem nome (como `fazer_algo(item1, item2)`), vai parar organizado dentro dessa sacola, que em Python chamamos de **tupla** (uma lista arrumadinha que não muda depois de pronta). O assistente recebe essa tupla e pode processar todos os itens extras posicionais.
+
+O `**kwargs` (com dois asteriscos) é como uma "caixa de itens com etiquetas". Tudo que você joga para o assistente dando um nome (como `configurar(cor="azul", tamanho="grande")`) vai parar organizado dentro dessa caixa, que em Python chamamos de **dicionário** (uma coleção onde cada item tem uma "etiqueta" única para encontrá-lo, como um mini-caderno de endereços). O assistente recebe esse dicionário e sabe exatamente qual item extra é qual pela etiqueta.
+
+Juntos, `*args` e `**kwargs` tornam suas funções super flexíveis, capazes de receber um número variável de informações adicionais, estejam elas "etiquetadas" ou não!
+
+**O que são e Por que Usar:**
+`*args` e `**kwargs` são convenções de nomes (mas o que importa são os asteriscos `*` e `**`) usadas na definição de funções para permitir que elas aceitem um **número variável de argumentos**. Isso é útil quando você não sabe de antemão quantos inputs adicionais uma função pode receber em diferentes chamadas.
+
+* **`*args`**: Captura um número variável de **argumentos posicionais** adicionais em uma **tupla**.
+    * **Tupla:** Uma coleção ordenada de itens, similar a uma lista, mas **imutável** (seu conteúdo não pode ser alterado após a criação). É representada por parênteses `()`. Ex: `(1, 'banana', True)`.
+* **`**kwargs`**: Captura um número variável de **argumentos nomeados** (na forma `chave=valor`) adicionais em um **dicionário**.
+    * **Dicionário:** Uma coleção **não ordenada** de pares *chave-valor*. Cada valor é acessado usando sua chave. É representado por chaves `{}` com pares `chave: valor`. Ex: `{'cor': 'azul', 'idade': 10}`.
+
+**Ordem na Definição da Função:**
+Se você usar parâmetros obrigatórios, `*args` e `**kwargs` juntos, eles devem aparecer nesta ordem na definição da função:
+1.  Parâmetros obrigatórios
+2.  `*args`
+3.  Parâmetros *apenas* nomeados (se houver, após `*args`)
+4.  `**kwargs`
+
+**Exemplos:**
+
+```python
+# Exemplo 1: Função usando *args (argumentos posicionais variáveis)
+def listar_ingredientes(*ingredientes):
+    """Recebe um número variável de ingredientes e os lista."""
+    print("Ingredientes informados:")
+    # 'ingredientes' dentro da função é uma tupla
+    for item in ingredientes:
+        print(f"- {item}")
+    print("-" * 20)
+
+listar_ingredientes("farinha", "açúcar", "ovos") # Passando 3 argumentos posicionais
+# Saída:
+# Ingredientes informados:
+# - farinha
+# - açúcar
+# - ovos
+# --------------------
+
+listar_ingredientes("leite") # Passando apenas 1 argumento posicional
+# Saída:
+# Ingredientes informados:
+# - leite
+# --------------------
+
+# Exemplo 2: Função usando **kwargs (argumentos nomeados variáveis)
+def criar_cartao_visita(**informacoes):
+    """Recebe informações variáveis (nomeadas) para um cartão de visita."""
+    print("--- Cartão de Visita ---")
+    # 'informacoes' dentro da função é um dicionário
+    for chave, valor in informacoes.items():
+        print(f"{chave.replace('_', ' ').title()}: {valor}") # Formata a chave
+    print("------------------------")
+
+criar_cartao_visita(nome="Ana Silva", profissao="Desenvolvedora", telefone="123-4567")
+# Saída:
+# --- Cartão de Visita ---
+# Nome: Ana Silva
+# Profissao: Desenvolvedora
+# Telefone: 123-4567
+# ------------------------
+
+criar_cartao_visita(empresa="Tech Solutions") # Passando apenas 1 argumento nomeado
+# Saída:
+# --- Cartão de Visita ---
+# Empresa: Tech Solutions
+# ------------------------
+
+# Exemplo 3: Combinando parâmetros obrigatórios com *args e **kwargs
+def registrar_evento(tipo_evento, *participantes, local="Online", **detalhes_extras):
+    """Registra um evento com tipo obrigatório, participantes variáveis e detalhes extras nomeados."""
+    print(f"Registrando Evento: {tipo_evento.upper()}")
+    print("Participantes:")
+    if participantes:
+        for p in participantes:
+            print(f"- {p}")
+    else:
+        print("- Nenhum participante listado.")
+
+    print(f"Local: {local}") # Usa o local padrão ou o passado como argumento nomeado 'local='
+
+    print("Detalhes Extras:")
+    if detalhes_extras:
+        for chave, valor in detalhes_extras.items():
+            print(f"{chave.replace('_', ' ').title()}: {valor}")
+    else:
+        print("- Nenhum detalhe extra.")
+    print("=" * 30)
+
+registrar_evento("Workshop Python", "Maria", "João", local="Sala 5", tema="Funções", nivel="Básico")
+# Saída:
+# Registrando Evento: WORKSHOP PYTHON
+# Participantes:
+# - Maria
+# - João
+# Local: Sala 5
+# Detalhes Extras:
+# Tema: Funções
+# Nivel: Básico
+# ==============================
+
+registrar_evento("Reunião Geral") # Apenas parâmetro obrigatório
+# Saída:
+# Registrando Evento: REUNIÃO GERAL
+# Participantes:
+# - Nenhum participante listado.
+# Local: Online
+# Detalhes Extras:
+# - Nenhum detalhe extra.
+# ==============================
+```
+//////////
 ---
 
 ## * `class`: Usada para definir uma classe.
