@@ -244,6 +244,67 @@ registrar_evento("Reunião Geral") # Apenas parâmetro obrigatório
 # - Nenhum detalhe extra.
 # ==============================
 ```
+
+### Parâmetros Especiais
+
+Por padrão, ao definir uma função em Python, os argumentos podem ser passados de duas maneiras:
+
+1.  **Por Posição (Positional Arguments):** A ordem em que os argumentos são passados na chamada da função corresponde à ordem dos parâmetros na definição da função.
+2.  **Por Nome (Keyword Arguments):** Os argumentos são passados explicitamente com o nome do parâmetro seguido por um sinal de igual (`=`) e o valor. A ordem não importa nesse caso.
+
+No entanto, Python oferece uma sintaxe para restringir como os argumentos podem ser passados para uma função. Isso pode melhorar a legibilidade e o desempenho do código, pois força uma maneira específica de chamar a função, tornando a intenção mais clara na definição. Os parâmetros especiais são definidos usando os símbolos `/` e `*` na lista de parâmetros da função.
+
+**Sintaxe:**
+
+```python
+def nome_da_funcao(posicional_apenas, /, posicional_ou_nome, *, nome_apenas):
+    # Corpo da função
+    pass
+```
+
+**Tipos de Parâmetros Especiais:**
+
+1.  **Parâmetros Posicionais Apenas (Positional-Only Parameters):**
+    * Definidos *antes* do símbolo `/` na lista de parâmetros.
+    * Só podem ser passados por posição na chamada da função.
+    * Se a definição for `def minha_funcao(a, b, /):`, ao chamar, você deve usar `minha_funcao(1, 2)`, e não `minha_funcao(a=1, b=2)`.
+    * O símbolo `/` indica o fim dos parâmetros posicionais apenas. Se não houver nomes de parâmetros antes de `/`, significa que a função não aceita nenhum parâmetro posicional.
+
+2.  **Parâmetros Posicionais ou por Nome (Positional or Keyword Arguments):**
+    * São os parâmetros comuns que aparecem *entre* os parâmetros posicionais apenas (se houver) e os parâmetros nomeados apenas (se houver), ou antes de `/` se não houver parâmetros posicionais apenas, ou depois de `*` se não houver parâmetros nomeados apenas.
+    * Podem ser passados tanto por posição quanto explicitamente pelo nome na chamada da função.
+    * Exemplo: Em `def outra_funcao(x, y):`, você pode chamar como `outra_funcao(10, 20)` ou `outra_funcao(y=20, x=10)`.
+
+3.  **Parâmetros Nomeados Apenas (Keyword-Only Arguments):**
+    * Definidos *após* o símbolo `*` na lista de parâmetros.
+    * Só podem ser passados explicitamente pelo nome na chamada da função.
+    * Se a definição for `def funcao_especial(*, nome1, nome2):`, ao chamar, você deve usar `funcao_especial(nome1='valor1', nome2='valor2')`, e não `funcao_especial('valor1', 'valor2')`.
+    * O símbolo `*` indica o início dos parâmetros nomeados apenas. Se não houver nomes de parâmetros após `*`, a função não aceita nenhum argumento nomeado.
+
+**Exemplo Combinado:**
+
+```python
+def f(pos1, pos2, /, pos_ou_kwd, *, kwd1, kwd2):
+    print(f"pos1: {pos1}, pos2: {pos2}, pos_ou_kwd: {pos_ou_kwd}, kwd1: {kwd1}, kwd2: {kwd2}")
+
+# Chamadas válidas:
+f(1, 2, 3, kwd1=4, kwd2=5)
+f(1, 2, pos_ou_kwd=3, kwd1=4, kwd2=5)
+
+# Chamadas inválidas (resultarão em TypeError):
+# f(pos1=1, pos2=2, 3, kwd1=4, kwd2=5)  # pos1 e pos2 são posicionais apenas
+# f(1, 2, 3, 4, 5)                     # kwd1 e kwd2 devem ser nomeados
+# f(1, 2, 3, kwd2=5, 4)                # ordem de nomeados não importa, mas 4 não é nomeado
+```
+
+**Benefícios:**
+
+- **Clareza na Assinatura da Função:** A definição da função já indica como os argumentos devem ser passados.
+- **Melhor Legibilidade:** Ao chamar a função, a forma como os argumentos são passados é mais explícita.
+- **Flexibilidade no Nome dos Parâmetros:** Você pode usar nomes de parâmetros mais descritivos sem se preocupar com conflitos na ordem dos argumentos posicionais na chamada.
+
+Ao utilizar parâmetros especiais, o desenvolvedor que for usar sua função terá uma diretriz clara sobre como os argumentos devem ser fornecidos, o que contribui para um código mais robusto e fácil de entender.
+
 //////////
 ---
 
