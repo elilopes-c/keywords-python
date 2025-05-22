@@ -612,6 +612,97 @@ print(f"Penúltimo até o 4º caractere invertido (nome[-2:-26:-1]): '{nome[-2:-
 //////////
 ---
 
+## ESTRUTURAS DE DADOS:
+
+## * `list`: Usada para criar e manipular listas.
+_Imagine uma lista como uma "caixa organizadora" onde você pode guardar vários itens em uma ordem específica. Diferente de uma caixa onde tudo se mistura, na lista você sabe exatamente onde cada item está (pela sua posição, que chamamos de índice). O mais legal é que você pode adicionar, remover e até trocar itens depois de a caixa estar pronta, e pode guardar itens de diferentes tipos (números, textos, outros objetos, etc.) na mesma caixa!_
+
+As listas são coleções ordenadas, mutáveis e que permitem itens duplicados. São definidas usando colchetes `[]`.
+
+**Características Principais:**
+    - **Ordenada:** Os itens possuem uma ordem definida, e essa ordem não muda a menos que a lista seja modificada.
+    - **Mutável:** Você pode adicionar, remover ou modificar itens após a criação da lista.
+    - **Indexada:** Cada item tem um índice (posição) numérico, começando do 0 para o primeiro item.
+    - **Permite Duplicatas:** Você pode ter o mesmo valor várias vezes na mesma lista.
+    - **Versátil:** Pode armazenar itens de diferentes tipos de dados.
+
+**Sintaxe:**
+    ```python
+    minha_lista = [item1, item2, item3, ...]
+    ```
+
+**Exemplos:**
+
+```python
+    # Criando listas
+    numeros = [1, 2, 3, 4, 5]
+    frutas = ["maçã", "banana", "cereja"]
+    mista = [10, "Python", True, 3.14]
+    lista_vazia = []
+
+    print(f"Lista de números: {numeros}")
+    # Saída: Lista de números: [1, 2, 3, 4, 5]
+    print(f"Lista de frutas: {frutas}")
+    # Saída: Lista de frutas: ['maçã', 'banana', 'cereja']
+    print(f"Lista mista: {mista}")
+    # Saída: Lista mista: [10, 'Python', True, 3.14]
+
+    # Acessando itens (por índice)
+    print(f"Primeiro número: {numeros[0]}")
+    # Saída: Primeiro número: 1
+    print(f"Última fruta (índice negativo): {frutas[-1]}")
+    # Saída: Última fruta (índice negativo): cereja
+
+    # Fatiamento (slicing) de listas - Funciona como fatiamento de strings!
+    print(f"Primeiras duas frutas: {frutas[0:2]}")
+    # Saída: Primeiras duas frutas: ['maçã', 'banana']
+    print(f"Números do segundo ao quarto: {numeros[1:4]}")
+    # Saída: Números do segundo ao quarto: [2, 3, 4]
+
+    # Modificando itens
+    frutas[1] = "laranja" # Altera a "banana" para "laranja"
+    print(f"Frutas após modificação: {frutas}")
+    # Saída: Frutas após modificação: ['maçã', 'laranja', 'cereja']
+
+    # Adicionando itens
+    frutas.append("uva") # Adiciona "uva" ao final
+    print(f"Frutas após append: {frutas}")
+    # Saída: Frutas após append: ['maçã', 'laranja', 'cereja', 'uva']
+
+    frutas.insert(1, "kiwi") # Insere "kiwi" no índice 1
+    print(f"Frutas após insert: {frutas}")
+    # Saída: Frutas após insert: ['maçã', 'kiwi', 'laranja', 'cereja', 'uva']
+
+    # Removendo itens
+    frutas.remove("laranja") # Remove a primeira ocorrência de "laranja"
+    print(f"Frutas após remove: {frutas}")
+    # Saída: Frutas após remove: ['maçã', 'kiwi', 'cereja', 'uva']
+
+    item_removido = frutas.pop(0) # Remove e retorna o item do índice 0 ("maçã")
+    print(f"Item removido com pop: {item_removido}")
+    # Saída: Item removido com pop: maçã
+    print(f"Frutas após pop: {frutas}")
+    # Saída: Frutas após pop: ['kiwi', 'cereja', 'uva']
+
+    # Verificando o tamanho da lista
+    print(f"Número de frutas na lista: {len(frutas)}")
+    # Saída: Número de frutas na lista: 3
+
+    # Iterando sobre uma lista (usando o for, que será explicado em breve!)
+    print("\nMinhas frutas favoritas:")
+    for fruta in frutas:
+        print(f"- {fruta}")
+    # Saída:
+    # Minhas frutas favoritas:
+    # - kiwi
+    # - cereja
+    # - uva
+``` 
+
+
+//////////
+---
+
 ## ESTRUTURAS CONDICIONAIS:
 ## * `if, elif, else`: Usadas para estruturas condicionais.
 A estrutura condicional permite o desvio de fluxo de controle, quando determinadas expressões lógicas são atendidas.
