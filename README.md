@@ -865,9 +865,11 @@ print("Execução continua após o loop while.")
 # Ação principal para o número: 4
 # Ação principal para o número: 5
 # Execução continua após o loop while.
-
+```
 ---
+
 ////////////////////
+
 ## * `return`: Usada dentro de uma função para enviar um valor de volta.
 _Quando uma função com `return` termina seu trabalho, ela é como um mensageiro que volta para quem a chamou e entrega um pacote (o valor de retorno). Se não houver `return` explícito ou se for `return None`, ela entrega um "pacote vazio" (None)._
 
