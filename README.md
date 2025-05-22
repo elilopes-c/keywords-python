@@ -1,4 +1,4 @@
-﻿# Palavras-Chave (keywords) em Python
+﻿# Guia Palavras-Chave (keywords) em Python
 
 Este guia aborda as keywords mais utilizadas em Python, com uma explicação prática de fácil compreensão.
 ---
