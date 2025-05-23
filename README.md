@@ -699,6 +699,68 @@ As listas são coleções ordenadas, mutáveis e que permitem itens duplicados. 
     # - uva
 ``` 
 
+## * `List Comprehension` (Compreensão de Listas)
+_Pense na Compreensão de Listas como uma "máquina de fazer listas personalizadas" super eficiente e compacta! Em vez de usar um laço `for` longo com um `if` para criar uma nova lista, você pode fazer tudo em uma única linha, de um jeito muito mais elegante._
+
+_É como se você dissesse ao Python: "Ei, pegue cada item desta lista antiga, faça algo com ele (talvez filtre alguns ou transforme outros) e me dê uma nova lista com os resultados."_
+
+**Estrutura básica:**
+
+```
+nova_lista = [expressao for item in iteravel if condicao]
+```
+
+- `expressao`: É o que você quer fazer com cada `item` (ex: `item`, `item * 2`, `item.upper()`).
+- `item`: Uma variável temporária que representa cada elemento do `iteravel`.
+- `iteravel`: A lista ou outra coleção que você está percorrendo (ex: `numeros`, `minha_lista_de_nomes`).
+- `if condicao` (opcional): Uma condição para **filtrar** os itens. Se a condição for `True`, o `item` é incluído na nova lista (após a `expressao`). Se for `False`, ele é ignorado.
+
+## * Filtro com Compreensão de Listas
+
+_Imagine que você tem uma cesta de frutas e quer separar apenas as maçãs. A Compreensão de Listas com filtro faz exatamente isso: ela percorre sua lista original e seleciona apenas os itens que atendem a um critério específico, criando uma nova lista só com eles._
+
+**Exemplos:**
+
+### **Versão 1 (Tradicional com `for` e `if`):**
+Esta é a forma "passo a passo", onde você cria uma lista vazia, percorre a original e adiciona os itens se eles satisfizerem a condição.
+
+```
+numeros = [1, 30, 21, 2, 9, 65, 34]
+pares = [] # Começa com uma cesta vazia para os números pares
+
+for numero in numeros: # Para cada número na lista 'numeros':
+    if numero % 2 == 0: # Se o número for divisível por 2 (ou seja, for par):
+        pares.append(numero) # Adicione esse número par à sua cesta 'pares'
+
+print(pares) # Saída: [30, 2, 34]
+
+```
+
+
+### **Versão 2 (Compreensão de Lista para Filtro):**
+Esta é a forma "mágica" e compacta, fazendo o mesmo que a versão 1 em uma única linha.
+
+```
+numeros = [1, 30, 21, 2, 9, 65, 34]
+# Filtra: "Para cada número na lista 'numeros', se o número for par, inclua-o na nova lista 'pares'"
+pares = [numero for numero in numeros if numero % 2 == 0] 
+
+print(pares) # Saída: [30, 2, 34]
+```
+
+## * `Modificação (ou Mapeamento) com Compreensão de Listas`
+
+_Agora, imagine que você tem um conjunto de ingredientes e quer transformá-los em algo novo, como transformar farinha em bolo, ou multiplicar todos os seus números por 2. A Compreensão de Listas para modificação faz exatamente isso: ela percorre sua lista original, aplica uma transformação em cada item e coleta os resultados em uma nova lista._
+
+**Exemplo:**
+
+```
+numeros = [1, 30, 21, 2, 9, 65, 34]
+# Modifica: "Para cada número na lista 'numeros', calcule o quadrado desse número e inclua-o na nova lista 'quadrado'"
+quadrado = [numero ** 2 for numero in numeros] 
+
+print(quadrado) # Saída: [1, 900, 441, 4, 81, 4225, 1156]
+```
 
 //////////
 ---
