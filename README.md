@@ -762,6 +762,146 @@ quadrado = [numero ** 2 for numero in numeros]
 print(quadrado) # Saída: [1, 900, 441, 4, 81, 4225, 1156]
 ```
 
+## * Métodos da Classe List
+_Imagine que sua lista é como uma "caixa mágica" que pode guardar um monte de coisas em uma ordem específica. Os métodos são como "botões" ou "comandos especiais" nessa caixa que permitem que você faça diversas ações com os itens que estão dentro dela: adicionar, remover, contar, organizar, e muito mais!_
+
+## * .append()
+_Pense no `.append()` como a ação de **colocar um novo item no final da sua caixa mágica**. 
+É a forma mais simples de adicionar algo, sempre lá na última posição disponível._
+
+**Exemplo:**
+```
+lista = [] # Sua caixa mágica está vazia
+lista.append(1) # Você adiciona o número 1
+lista.append("Python") # Depois, adiciona a palavra "Python"
+lista.append([40, 30, 20]) # E por último, adiciona uma caixinha menor com três números!
+
+print(lista) # Saída: [1, 'Python', [40, 30, 20]]
+```
+
+## * .clear()
+_O `.clear()` é como **virar sua caixa mágica de cabeça para baixo e esvaziar tudo o que tem dentro dela**. 
+A caixa continua existindo, mas agora está completamente vazia, pronta para novos itens._
+
+**Exemplo:**
+```
+lista = [1, "Python", 40, 30, 20] # Sua caixa mágica com alguns itens
+lista.clear() # Virando a caixa e esvaziando tudo
+
+print(lista) # Saída: []
+```
+
+## * .copy()
+_O `.copy()` é como **fazer uma fotocópia exata da sua caixa mágica**. 
+Você terá uma nova caixa idêntica, mas ela é independente da original. Se você mudar algo em uma, a outra não será afetada._
+
+**Exemplo:**
+```
+lista = [1, "Python", 40, 30, 20] # Sua caixa mágica original
+copia_lista = lista.copy() # Criando uma fotocópia
+
+print(copia_lista) # Saída: [1, 'Python', 40, 30, 20]
+```
+
+## * .count()
+_O `.count()` é como **perguntar à sua caixa mágica: "Quantas vezes este item específico aparece aqui dentro?"** Ela te dará a contagem exata._
+
+**Exemplo:**
+```
+cores = ["vermelho", "azul", "verde", "azul"] # Sua caixa mágica com cores
+print(cores.count("vermelho")) # Quantos "vermelho"? Saída: 1
+print(cores.count("azul"))    # Quantos "azul"? Saída: 2
+print(cores.count("verde"))   # Quantos "verde"? Saída: 1
+```
+## * .extend()
+_O `.extend()` é como **pegar todos os itens de outra caixa mágica e adicioná-los um por um ao final da sua caixa atual**. 
+É diferente de `.append()` que adicionaria a *outra caixa inteira* como um único item; aqui, você adiciona os *itens da outra caixa*._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c"] # Sua caixa de linguagens
+linguagens.extend(["java", "csharp"]) # Adicionando os itens de outra lista um a um
+
+print(linguagens) # Saída: ['python', 'js', 'c', 'java', 'csharp']
+```
+
+## * .index()
+_O `.index()` é como **perguntar à sua caixa mágica: "Onde está a primeira ocorrência deste item?"** Ela te dirá a posição (o "endereço") da primeira vez que encontrar o item. 
+Lembre-se que em Python, as posições começam do 0._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
+print(linguagens.index("python")) # Onde está "python"? Saída: 0 (primeira posição)
+print(linguagens.index("java"))   # Onde está "java"? Saída: 3
+```
+
+## * .pop()
+_O `.pop()` é como **retirar o último item da sua caixa mágica e te entregar ele de volta**. Você também pode especificar qual item deseja retirar pela sua posição, e ele te entregará esse item._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c"] # Sua caixa de linguagens
+print(linguagens.pop())   # Tira e me dá o último. Saída: 'c'
+print(linguagens.pop())   # Tira e me dá o último. Saída: 'js'
+print(linguagens.pop())   # Tira e me dá o último. Saída: 'python'
+print(linguagens.pop(0))  # Tira e me dá o item na posição 0 (se ainda houver)
+```
+
+## * .remove()
+_O `.remove()` é como **dizer à sua caixa mágica: "Remova a primeira ocorrência deste item que você encontrar!"** 
+Diferente do `.pop()`, você diz o *valor* do item, não a posição, e ele não te entrega o item de volta, apenas o remove._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
+linguagens.remove("c") # Remova a primeira ocorrência de "c"
+
+print(linguagens) # Saída: ['python', 'js', 'java', 'csharp']
+```
+
+## * .reverse()
+_O `.reverse()` é como **sacudir sua caixa mágica para que todos os itens fiquem na ordem inversa**. O primeiro vira o último, o segundo vira o penúltimo, e assim por diante._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
+linguagens.reverse() # Invertendo a ordem
+
+print(linguagens) # Saída: ['csharp', 'java', 'c', 'js', 'python']
+```
+
+## * .sort()
+_O `.sort()` é como **organizar os itens da sua caixa mágica em uma ordem específica (alfabética para textos, numérica para números)**. Ele altera a própria caixa, não cria uma nova._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
+linguagens.sort() # Organizando em ordem alfabética
+
+print(linguagens) # Saída: ['c', 'csharp', 'java', 'js', 'python']
+
+# Você também pode inverter a ordem (decrescente ou Z-A)
+linguagens.sort(reverse=True)
+print(linguagens) # Saída: ['python', 'js', 'java', 'csharp', 'c']
+
+# Ou ordenar por um critério específico, como o tamanho das palavras
+linguagens.sort(key=lambda x: len(x)) # Ordena pelo tamanho (menor para maior)
+print(linguagens) # Saída: ['c', 'js', 'java', 'python', 'csharp']
+
+linguagens.sort(key=lambda x: len(x), reverse=True) # Ordena pelo tamanho (maior para menor)
+print(linguagens) # Saída: ['python', 'csharp', 'java', 'js', 'c']
+```
+
+## * len() (Função não-método, mas útil para listas)
+_Embora `len()` não seja um "botão" na sua caixa mágica (não é um método como os outros que vimos), é como **uma fita métrica que você usa para saber quantos itens no total estão dentro da sua caixa**._
+
+**Exemplo:**
+```
+linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
+print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
+```
+
 //////////
 ---
 
