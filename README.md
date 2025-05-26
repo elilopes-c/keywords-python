@@ -902,6 +902,131 @@ linguagens = ["python", "js", "c", "java", "csharp"] # Sua caixa de linguagens
 print(len(linguagens)) # Quantos itens tem na caixa? Saída: 5
 ```
 
+ ## * `Tuplas` (Coleções Imutáveis)
+ _Imagine uma `tupla` como uma daquelas caixas organizadoras super especiais que, depois de montadas e preenchidas, **não podem mais ser modificadas**! Uma vez que você coloca algo dentro dela, aquilo fica lá, fixo e seguro. Elas são como listas, mas com um superpoder de **segurança** contra mudanças acidentais._
+
+ São perfeitas para guardar informações que não devem mudar, tipo as coordenadas de um mapa, os dias da semana, ou as configurações iniciais de um programa. Elas garantem que, uma vez definidos, seus dados permanecerão exatamente como você os deixou.
+
+ ### **Criando Tuplas**
+
+ Criar uma tupla é como encher sua caixa organizadora. Você pode fazer isso de várias formas, seja colocando os itens entre parênteses ou até mesmo convertendo outras "caixas" (como textos ou listas) em tuplas.
+
+ **Estrutura básica:**
+```
+ minha_tupla = (item1, item2, item3)
+```
+
+ **Exemplos:**
+
+ #### **Tupla simples com parênteses:**
+
+ _A forma mais comum, onde você lista os itens separados por vírgulas e envolve tudo em parênteses. É como colocar seus brinquedos um por um na caixa._
+
+```
+ # Uma tupla de frutas que você tem na geladeira
+ frutas = ("laranja", "pera", "uva",)
+ print(frutas) # Saída: ('laranja', 'pera', 'uva')
+```
+
+ #### **Tupla a partir de um texto:**
+
+ _Você pode transformar cada letra de uma palavra em um item separado da tupla. É como pegar um colar de letras e separar cada uma delas._
+
+```
+ # Cada letra da palavra "python" vira um item da tupla
+ letras = tuple("python")
+ print(letras) # Saída: ('p', 'y', 't', 'h', 'o', 'n')
+```
+
+ #### **Tupla a partir de uma lista (ou outras coleções):**
+
+ _Se você tem uma lista e quer que ela se torne "imutável" (protegida contra mudanças), pode convertê-la em uma tupla. É como selar uma lista de compras para que ninguém mude os itens._
+
+``` 
+# Uma lista de números que você quer proteger
+ lista_de_numeros = [1, 2, 3, 4]
+ numeros = tuple(lista_de_numeros)
+ print(numeros) # Saída: (1, 2, 3, 4)
+```
+
+ #### **Tupla com um único item:**
+
+ _**Atenção!** Se você tem apenas um item, precisa colocar uma vírgula depois dele, mesmo que não haja outro item. Senão, o Python não vai entender que é uma tupla! É como se a vírgula fosse o "sinal" de que a caixa é do tipo tupla, mesmo que só tenha um presente dentro._
+
+```
+ # Isso NÃO é uma tupla, é apenas uma string entre parênteses
+ errado = ("Brasil")
+ print(type(errado)) # Saída: <class 'str'>
+
+ # Isso SIM é uma tupla com um único item
+ pais = ("Brasil",)
+ print(type(pais)) # Saída: <class 'tuple'>
+```
+
+ ---
+
+ ## * `Métodos da Classe Tuple` (Super Poderes das Tuplas)
+
+ _Mesmo que as tuplas sejam "caixas seladas" que você não pode mudar, você ainda pode inspecioná-las e obter informações sobre o que está dentro! Pense nesses métodos como ferramentas especiais para "espiar" e contar o que tem na sua tupla, sem nunca abrir ou alterar o conteúdo._
+
+ ### **`len()` (Contando os Itens)**
+
+ _A função `len()` é como um contador de itens. Ela te diz quantos "presentes" ou "objetos" você colocou na sua tupla. Super útil para saber o tamanho da sua coleção._
+
+ **Exemplos:**
+
+```
+ # Uma tupla com diferentes linguagens de programação
+ linguagens = ("python", "js", "c", "java", "csharp",)
+
+ # Pergunte ao Python: "Quantos itens tem nesta tupla?"
+ total_linguagens = len(linguagens)
+ print(total_linguagens) # Saída: 5
+```
+ 
+### **`.index()` (Encontrando a Posição de um Item)**
+
+ _O método `.index()` é como um detector de posição. Se você sabe o que está procurando, ele te diz em qual "prateleira" ou "posição" (lembre-se que Python começa a contar do 0!) aquele item específico está guardado dentro da tupla._
+
+ **Exemplos:**
+
+```
+ # Uma tupla com linguagens de programação
+ linguagens = ("python", "js", "c", "java", "csharp",)
+
+ # Onde está a "java" nesta tupla?
+ posicao_java = linguagens.index("java")
+ print(posicao_java) # Saída: 3 (porque "java" está na quarta posição, que é o índice 3)
+
+ # Onde está "python" nesta tupla?
+ posicao_python = linguagens.index("python")
+ print(posicao_python) # Saída: 0 (porque "python" é o primeiro item, no índice 0)
+```
+
+
+ ### **`.count()` (Contando Ocorrências de um Item)**
+
+ _O método `.count()` é como um "fiscal de repetição". Ele te diz quantas vezes um determinado item aparece dentro da sua tupla. Perfeito para descobrir se você repetiu algum item sem querer, ou se há muitos de algo específico._
+
+ **Exemplos:**
+
+```
+ # Uma tupla com uma lista de cores, algumas repetidas
+ cores = ("vermelho", "azul", "verde", "azul",)
+
+ # Quantas vezes "vermelho" aparece?
+ contagem_vermelho = cores.count("vermelho")
+ print(contagem_vermelho) # Saída: 1
+
+ # Quantas vezes "azul" aparece?
+ contagem_azul = cores.count("azul")
+ print(contagem_azul) # Saída: 2
+
+ # Quantas vezes "verde" aparece?
+ contagem_verde = cores.count("verde")
+ print(contagem_verde) # Saída: 1
+```
+
 //////////
 ---
 
